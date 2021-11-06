@@ -1,0 +1,2 @@
+Dockerfile 작성 from run cmd copy
+docker volumn 사용 이유와 방법, 참조와 무시

@@ -1,0 +1,8 @@
+docker-compose, 다중 컨테이너 도커 앱을 정의하고 실행하기 위한 도구
+두 컨테이너간 통신에 대해 설정하는 방법
+docker-compose 내리기
+
+docker-compose up
+docker-compose up -d
+docker-compose up --build
+docker-compose down

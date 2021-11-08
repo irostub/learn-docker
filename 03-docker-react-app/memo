@@ -1,0 +1,7 @@
+docker build -f [build image]
+
+docker 에서 react test 시 hot load 안됨. 해결방법 찾는 중
+
+docker 운영환경 배포 - nginx, react
+react build file을 배포하고 nginx와 연결
+dockerfile "as" keyword "builder"

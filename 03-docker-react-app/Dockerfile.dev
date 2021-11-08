@@ -1,0 +1,12 @@
+FROM node:16
+
+WORKDIR /usr/src/app
+
+COPY package.json ./
+RUN npm install
+COPY ./ ./
+
+ENV GIT_WORK_TREE=/usr/src/app/frontend GIT_DIR=/usr/src/app/.git
+ENV CHOKIDAR_USEPOLLING=true
+
+CMD ["npm", "run", "start"]

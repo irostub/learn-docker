@@ -2,11 +2,15 @@ sudo: required
 
 language: generic
 
-services: -docker
+services:
+  - docker
 
-before_install: -echo "start creating an image with dockerfile"
-  -docker build -t irostub/docker-react-app -f ./03-docker-react-app/Dockerfile.dev
+before_install:
+  - echo "start creating an image with dockerfile"
+  - docker build -t irostub/docker-react-app -f ./03-docker-react-app/Dockerfile.dev
 
-script: -docker run -e CI=true irostub/docker-react-app npm run test -- --coverage
+script:
+  - docker run -e CI=true irostub/docker-react-app npm run test -- --coverage
 
-after_success: -echo "test success"
+after_success:
+  - echo "test success"

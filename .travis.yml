@@ -14,3 +14,17 @@ script:
 
 after_success:
   - echo "test success"
+
+#배포
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-northeast-2:618857503620"
+  app: "docker-react-app"
+  bucket_name: "elasticbeanstalk-ap-northeast-2-618857503620"
+  bucket_path: "docker-react-app"
+
+  on:
+    branch: master
+
+access_key_id: $aws_access_key
+secret_access_key: $aws_private_access_key

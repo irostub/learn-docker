@@ -18,7 +18,7 @@ after_success:
 #배포
 deploy:
   provider: elasticbeanstalk
-  region: "ap-northeast-2:618857503620"
+  region: "ap-northeast-2"
   app: "docker-react-app"
   bucket_name: "elasticbeanstalk-ap-northeast-2-618857503620"
   bucket_path: "docker-react-app"

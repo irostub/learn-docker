@@ -2,9 +2,9 @@ FROM node:16 as builder
 
 WORKDIR /usr/src/app
 
-COPY package.json ./
+COPY ./03-docker-react-app/package.json ./
 RUN npm install
-COPY ./ ./
+COPY ./03-docker-react-app/ ./
 
 CMD [ "npm", "run", "build" ]
 

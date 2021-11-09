@@ -27,5 +27,5 @@ deploy:
   on:
     branch: master
 
-  access_key_id: $aws-access-key
-  secret_access_key: $aws-private-key
+  AWS_ACCESS_KEY_ID: $aws-access-key
+  AWS_SECRET_ACCESS_KEY: $aws-private-key

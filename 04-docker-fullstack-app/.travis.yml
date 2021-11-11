@@ -1,0 +1,35 @@
+sudo: required
+
+language: generic
+
+services: -docker
+
+before_install:
+  - docker build -t irostub/docker-test-app -f ./frontend/Dockerfile.dev ./frontend
+
+script:
+  - docker run -e CI=true irostub/docker-test-app npm test
+
+after_success:
+  - docker build -t irostub/docker-frontend ./frontend
+  - docker build -t irostub/docker-backend ./backend
+  - docker build -t irostub/docker-nginx ./nginx
+
+  - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
+
+  - docker push irostub/docker-frontend
+  - docker push irostub/docker-backend
+  - docker push irostub/docker-nginx
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-northeast-2"
+  app: "docker-f-app"
+  env: "Dockerfapp-env"
+  bucket_name: elasticbeanstalk-ap-northeast-2-618857503620
+  bucket_path: "docker-f-app"
+  on:
+    branch: master
+  
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_ACCESS_KEY

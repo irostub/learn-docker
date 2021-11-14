@@ -74,4 +74,11 @@ Docker with react
   - deploy
 - docker-compose.yml with AWS EB setting
 
-## 이슈
+## 해결된 이슈
+
+- react-scripts 4.0.x 버전에서 배포시 블로킹 되는 현상(버전 다운그레이드)
+- react hot load 가 작동하지 않는 현상(config env에 설정 추가)
+
+## 해결되지 않은 이슈
+
+- jest 의 테스트 hot load 가 작동하지 않음
